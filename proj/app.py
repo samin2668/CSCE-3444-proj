@@ -14,13 +14,18 @@ app = Flask(__name__, static_url_path='')
 con = sqlite3.connect('data.db', check_same_thread=False)
 
 
+#Homepage
 @app.route('/')
-def index():
+@app.route('/home')
+def home():
 
-    msg = "Hello World!"
-    return render_template('test.html', msg=msg)
+    #msg = "Hello World!"
+    return render_template('index.html') #,msg=msg)
 
-
+#Apply section of webpage
+@app.route('/apply')
+def apply():
+	return render_template('apply.html')
 
 if __name__ == '__main__':
     app.run()
