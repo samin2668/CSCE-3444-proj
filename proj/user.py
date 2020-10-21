@@ -20,12 +20,11 @@ class Registration(FlaskForm):
 
 
 class Login(FlaskForm):
-	usrname = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
 
-	emaill = StringField('Email', validators=[DataRequired(), Email()])
+	email = StringField('Email', validators=[DataRequired(), Email()])
 
-	passwdd = PasswordField('Password', validators=[DataRequired()])
+	passwd = PasswordField('Password', validators=[DataRequired()])
 
 	remember = BooleanField('Remember Me')
 
-	submitt = SubmitField('Login')
+	submit = SubmitField('Login')
