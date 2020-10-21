@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+</head>
+<body>
+    <!-- Links (sit on top) -->
+    <div class="top">
+        <div class="w3-row w3-padding w3-black">
+
+            <div class="w3-col s3">
+                <a href="#FloorPlan" class="w3-button w3-block w3-black">Floor Plans</a>
+            </div>
+
+            <div class="w3-col s3">
+                <a href="#Gallery" class="w3-button w3-block w3-black">Gallery</a>
+            </div>
+
+            <div class="w3-col s3">
+                <a href="#Amenities" class="w3-button w3-block w3-black">Amenities</a>
+            </div>
+
+            <div class="w3-col s3">
+                <a href="apply.html" class="w3-button w3-block w3-black">Apply</a>
+            </div>
+
+
+
+        </div>
+    </div>
+
+
+
+    <div class="login">
+        <h3>Login with existing account.</h3>
+        <form action="{{ url_for('login') }}" method="post">
+            <label for="email">Email*</label><br>
+            <input type="text" id="email" name="email"><br>
+            <label for="password">Password*</label><br>
+            <input type="password" id="pass" name="pass"><br>
+            <button type="submit" class="btn" >Login</button>
+        </form>
+        {{ msg }}
+    </div>
+
+    <!-- Header with image -->
+    <head>
+        <title>Home</title>
+        <div class="container">
+            <img src="\images\pexels-adrien-olichon-2387674.jpg" alt="stock image" style="width:1920px;height:1080px;">
+        </div>
+    </head>
+    <footer>
+            <a href="#ContactUs" class="w3-button w3-block w3-black">Contact Us</a>
+    </footer>
+</body>
+</html>

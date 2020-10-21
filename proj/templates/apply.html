@@ -11,7 +11,7 @@
     <!-- Links (sit on top) -->
     <div class="top">
         <div class="w3-row w3-padding w3-black">
-            
+
             <div class="w3-col s3">
                 <a href="#FloorPlan" class="w3-button w3-block w3-black">Floor Plans</a>
             </div>
@@ -25,40 +25,40 @@
             </div>
 
             <div class="w3-col s3">
-                <a href="apply.html" class="w3-button w3-block w3-black">Login</a>
+                <a href="apply.html" class="w3-button w3-block w3-black">Apply</a>
             </div>
 
         </div>
     </div>
 
     <div class="info">
-        <div class="personal">
-            <h1>Personal Info</h1>
-            <form>
+        <div class="account">
+            <h1>Account Info</h1>
+            <form action="{{ url_for('apply') }}" method="post">
                 <label for="fname">First name*</label><br>
                 <input type="text" id="fname" name="fname"><br>
                 <label for="lname">Last name*</label><br>
                 <input type="text" id="lname" name="lname"><br>
                 <label for="lname">Phone*</label><br>
                 <input type="text" id="phone" name="phone"><br>
-            </form>
-        </div>
-        <div class="account">
-            <h1>Account Info</h1>
-            <form>
                 <label for="email">Email*</label><br>
                 <input type="text" id="email" name="email"><br>
                 <label for="password">Password*</label><br>
                 <input type="password" id="pass" name="pass"><br>
                 <label for="ConPass">Confirm Password*</label><br>
                 <input type="password" id="conPass" name="conPass"><br>
+                <button type="submit" class="btn" >Create account</button>
             </form>
+            {{ msg }}
         </div>
+        <!--
         <a href="reg.html">
             <button class="btn" >Register</button>
         </a>
+      -->
     </div>
 
+    <!--
     <div class="login">
         <h3>Login with existing account.</h3>
         <form>
@@ -68,16 +68,17 @@
             <input type="password" id="pass" name="pass"><br>
         </form>
         <a href="reg.html">
-            <button class="btn" >Login</button> 
-        </a> 
+            <button class="btn" >Login</button>
+        </a>
     </div>
+    -->
 
     <!-- Header with image -->
     <head>
         <title>Home</title>
         <div class="container">
             <img src="\images\pexels-adrien-olichon-2387674.jpg" alt="stock image" style="width:1920px;height:1080px;">
-        </div> 
+        </div>
     </head>
     <footer>
             <a href="#ContactUs" class="w3-button w3-block w3-black">Contact Us</a>
