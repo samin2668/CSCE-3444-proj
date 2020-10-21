@@ -7,7 +7,7 @@ import hashlib
 
 
 
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__)
 
 
 # Create database for user accounts and apartment units and anything else
