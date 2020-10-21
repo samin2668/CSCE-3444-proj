@@ -32,11 +32,14 @@ def apply():
 
 
 #Apply reg section of webpage
-@app.route('/register')
-def register():
+@app.route('/login')
+def login():
+	form = Login()
+	return render_template('login.html', form=form)
+
+@app.route('/reg')
+def reg():
 	return render_template('reg.html')
-
-
 
 
 if __name__ == '__main__':
