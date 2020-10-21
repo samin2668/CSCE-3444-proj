@@ -1,19 +1,27 @@
-{%extends "apply.html" %}
-{% block content %}
-
-	<div class="login">
-        <h3>Login with existing account.</h3>
-        <form>
-            <label for="email">Email*</label><br>
-            {{form.email}}<br>
-            <label for="password">Password*</label><br>
-           {{form.passwd}}<br>
-        </form>
-        <a href="reg.html">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
+    <link rel="stylesheet" href="style.css">
+   <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='syle.css') }}"> -->
+    <title>Login</title>
+</head>
+	<body>
+		<div class="login">
+	        <h3>Login with existing account.</h3>
+	        <form>
+	            <label for="email">Email*</label><br>
+	            {{form.email}}<br>
+	            <label for="password">Password*</label><br>
+	           {{form.passwd}}<br>
+	        </form>
+	    <a href="{{url_for('reg')}}">
             {{form.submit(class="btn")}}
-        </a> 
-    </div>
+        </a>
+	    </div>
+	</body>
 
 
-
-{% endblock content%}
+</html>
