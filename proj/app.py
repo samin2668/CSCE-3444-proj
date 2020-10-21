@@ -2,6 +2,7 @@
 # Then visit localhost:5000 in a web browser
 
 from flask import * # Install Python and Flask on your local machine
+from users import Registration, Login
 import sqlite3
 import hashlib
 
@@ -9,6 +10,7 @@ import hashlib
 
 app = Flask(__name__, static_url_path='')
 
+app.config['SECRET_KEY'] = '3bfcd4ebd54cb9f7896c76c7f2b6b1d1'
 
 # Create database for user accounts and apartment units and anything else
 con = sqlite3.connect('data.db', check_same_thread=False)
@@ -20,14 +22,24 @@ con = sqlite3.connect('data.db', check_same_thread=False)
 def home():
 
     #msg = "Hello World!"
-    return render_template('index.html') #,msg=msg)
+    return render_template('home.html') #,msg=msg)
 
 #Apply section of webpage
 @app.route('/apply')
 def apply():
-	return render_template('apply.html')
+	form = Registration()
+	return render_template('apply.html', form=form)
+
+
+#Apply reg section of webpage
+@app.route('/register')
+def register():
+	return render_template('reg.html')
+
+
+
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
 
     con.close()
