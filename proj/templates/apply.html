@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
-    <link rel="stylesheet" href="style.css">
+   <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='syle.css') }}"> 
     <title>Apply Now</title>
 </head>
 <body>
@@ -36,41 +37,33 @@
             <h1>Personal Info</h1>
             <form>
                 <label for="fname">First name*</label><br>
-                <input type="text" id="fname" name="fname"><br>
+                {{form.fname}}<br>
                 <label for="lname">Last name*</label><br>
-                <input type="text" id="lname" name="lname"><br>
+                {{form.lname}}<br>
                 <label for="lname">Phone*</label><br>
-                <input type="text" id="phone" name="phone"><br>
+                {{form.phone}}<br>
             </form>
         </div>
         <div class="account">
             <h1>Account Info</h1>
             <form>
                 <label for="email">Email*</label><br>
-                <input type="text" id="email" name="email"><br>
+                {{form.email}}<br>
                 <label for="password">Password*</label><br>
-                <input type="password" id="pass" name="pass"><br>
+                {{form.passwd}}<br>
                 <label for="ConPass">Confirm Password*</label><br>
-                <input type="password" id="conPass" name="conPass"><br>
+                {{form.conPass}}<br>
             </form>
         </div>
-        <a href="reg.html">
-            <button class="btn" >Register</button>
-        </a>
+            <!--<a href="{{url_for('reg')}}">
+                {{form.submit(class="btn")}}
+            </a> -->
+            <div class="form-group">
+                {{form.submit(class="btn")}}
+            </div>
     </div>
 
-    <div class="login">
-        <h3>Login with existing account.</h3>
-        <form>
-            <label for="email">Email*</label><br>
-            <input type="text" id="email" name="email"><br>
-            <label for="password">Password*</label><br>
-            <input type="password" id="pass" name="pass"><br>
-        </form>
-        <a href="reg.html">
-            <button class="btn" >Login</button> 
-        </a> 
-    </div>
+    
 
     <!-- Header with image -->
     <head>
