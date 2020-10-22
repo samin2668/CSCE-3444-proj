@@ -79,7 +79,19 @@ def login():
 
 
 
+# Apartment registration page
+@app.route('/register/', methods=['POST', 'GET'])
+def register():
+    msg=""
 
+    # User register form
+    if request.method == 'POST':
+        pass
+        # all form inputs will go here
+
+
+        
+    return render_template("reg.html", msg=msg)
 
 
 
