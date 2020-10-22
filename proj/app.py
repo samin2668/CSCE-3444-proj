@@ -14,6 +14,19 @@ app = Flask(__name__)
 con = sqlite3.connect('data.db', check_same_thread=False)
 
 
+# Connect to database and create a Users table if it is new.
+# con = sqlite3.connect('users.db', check_same_thread=False)
+# cur = con.cursor()
+# cur.execute(''' CREATE TABLE IF NOT EXISTS Users (
+# 	"id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+#	"username"	TEXT UNIQUE NOT NULL,
+#	"email"	TEXT NOT NULL,
+#	"password"	TEXT NOT NULL
+# );
+# ''')
+# con.commit()
+
+
 #Homepage
 @app.route('/')
 #@app.route('/home/')
@@ -90,7 +103,7 @@ def register():
         # all form inputs will go here
 
 
-        
+
     return render_template("reg.html", msg=msg)
 
 
