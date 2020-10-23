@@ -1,0 +1,71 @@
+.container {
+    margin: 0px;
+}
+.container img {
+    width: 100%;
+    height: 100%;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+    position: absolute;
+    top: 592px;
+    left: 482px;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #ff8b06;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container .btn:hover {
+    background-color: black;
+}   
+
+.topnav {
+    background-color: #000000;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+
+body {
+    margin: 0px;
+}
+
+footer {
+    background-color: #000000;
+    overflow: hidden;
+    margin: 0px;
+}
+
+footer a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 0px;
+}
+
+footer a:hover {
+    background-color: #ddd;
+    color: black;
+}
