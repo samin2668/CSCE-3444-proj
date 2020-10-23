@@ -1,3 +1,4 @@
+<!--This is a template-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,23 +6,22 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
     <link rel="stylesheet" href="/proj/templates/style.css">
     <link rel="stylesheet" href="/proj/templates/navigation.css">
-    <title>Login</title>
+    <title>Apply Now</title>
 </head>
 <body>
     <!-- Links (sit on top) -->
     <div class="topnav">
         <div class="navigation">
-
             <div class="nav">
-                <a href="/proj/templates/floorplan.html" class="w3-button w3-block w3-black">Floor Plans</a>
+                <a href="#FloorPlan" class="w3-button w3-block w3-black">Floor Plans</a>
             </div>
 
             <div class="nav">
-                <a href="/proj/templates/gallery.html" class="w3-button w3-block w3-black">Gallery</a>
+                <a href="#Gallery" class="w3-button w3-block w3-black">Gallery</a>
             </div>
 
             <div class="nav">
-                <a href="/proj/templates/amenities.html" class="w3-button w3-block w3-black">Amenities</a>
+                <a href="#Amenities" class="w3-button w3-block w3-black">Amenities</a>
             </div>
 
             <div class="nav">
@@ -38,19 +38,8 @@
         </div>
         
     </div>
-
-    <div class="login">
-        <h3>Login with existing account.</h3>
-        <form action="{{ url_for('login') }}" method="post">
-            <label for="email">Email*</label><br>
-            <input type="text" id="email" name="email"><br>
-            <label for="password">Password*</label><br>
-            <input type="password" id="pass" name="pass"><br>
-            <button type="submit" class="btn" >Login</button>
-        </form>
+    
     </div>
-
-    <!-- Header with image -->
     <head>
         <title>Home</title>
         <div class="container">
