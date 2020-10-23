@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
     <link rel="stylesheet" href="/proj/templates/style.css">
+    <link rel="stylesheet" href="/proj/templates/navigation.css">
     <title>Login</title>
 </head>
 <body>
@@ -38,8 +39,6 @@
         
     </div>
 
-
-
     <div class="login">
         <h3>Login with existing account.</h3>
         <form action="{{ url_for('login') }}" method="post">
@@ -49,18 +48,20 @@
             <input type="password" id="pass" name="pass"><br>
             <button type="submit" class="btn" >Login</button>
         </form>
-        {{ msg }}
     </div>
 
     <!-- Header with image -->
     <head>
         <title>Home</title>
         <div class="container">
-            <img src="/proj/static/images/pexels-adrien-olichon-2387674.jpg" alt="stock image" style="width:1920px;height:1080px;">
+            <img src="/proj/static/images/pexels-adrien-olichon-2387674.jpg" alt="stock image">
         </div>
     </head>
     <footer>
-            <a href="#ContactUs" class="w3-button w3-block w3-black">Contact Us</a>
+        <p>1234 Road St <br>Denton,Texas 76203</p>
+        <a href="#ContactUs" class="w3-button w3-block w3-black">Contact Us</a>
+        <a href="#Accessibility" class="w3-button w3-block w3-black">Accessibility Statement</a>
+        <a href="#FairHousing" class="w3-button w3-block w3-black">Fair Housing Statement</a>
     </footer>
 </body>
 </html>

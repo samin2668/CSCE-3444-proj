@@ -2,39 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="/proj/templates/navigation.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
     <link rel="stylesheet" href="/proj/static/style.css">
     <title>Apply Now</title>
 </head>
 <body>
     <!-- Links (sit on top) -->
-    <div class="top">
-        <div class="w3-row w3-padding w3-black">
+    <div class="topnav">
+        <div class="navigation">
 
-            <div class="w3-col s3">
-                <a href="/" class="w3-button w3-block w3-black">Home</a>
-            </div>
-
-            <div class="w3-col s3">
+            <div class="nav">
                 <a href="#FloorPlan" class="w3-button w3-block w3-black">Floor Plans</a>
             </div>
 
-            <div class="w3-col s3">
+            <div class="nav">
                 <a href="#Gallery" class="w3-button w3-block w3-black">Gallery</a>
             </div>
 
-            <div class="w3-col s3">
+            <div class="nav">
                 <a href="#Amenities" class="w3-button w3-block w3-black">Amenities</a>
             </div>
 
-            <div class="w3-col s3">
-                <a href="/register/" class="w3-button w3-block w3-black">Register</a>
+            <div class="nav">
+                <a href="\proj\templates\apply.html" class="w3-button w3-block w3-black">Apply</a>
+            </div>
+
+            <div class="nav">
+                <a href="\proj\templates\login.html" class="w3-button w3-block w3-black">Login</a>
             </div>
 
         </div>
+        <div class="logo">
+            <a href="/proj/templates/home.html">EAGLE APARTMENTS</a>
+        </div>
     </div>
-
     <div class="info">
         <div class="account">
             <h1>Account Info</h1>
@@ -53,7 +55,6 @@
                 <input type="password" id="conPass" name="conPass"><br>
                 <button type="submit" class="btn" >Create account</button>
             </form>
-            {{ msg }}
         </div>
         <!--
         <a href="reg.html">
@@ -81,11 +82,14 @@
     <head>
         <title>Home</title>
         <div class="container">
-            <img src="/proj/static/images/pexels-adrien-olichon-2387674.jpg" alt="stock image" style="width:1920px;height:1080px;">
+            <img src="/proj/static/images/pexels-adrien-olichon-2387674.jpg" alt="stock image">
         </div>
     </head>
     <footer>
-            <a href="#ContactUs" class="w3-button w3-block w3-black">Contact Us</a>
+        <p>1234 Road St <br>Denton,Texas 76203</p>
+        <a href="#ContactUs" class="w3-button w3-block w3-black">Contact Us</a>
+        <a href="#Accessibility" class="w3-button w3-block w3-black">Accessibility Statement</a>
+        <a href="#FairHousing" class="w3-button w3-block w3-black">Fair Housing Statement</a>
     </footer>
 </body>
 </html>
