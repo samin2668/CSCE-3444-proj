@@ -26,72 +26,12 @@
     background-color: black;
 }   
 
-.info {
-    position: absolute;
-    margin:0 auto; 
-    width:400px;
-    height: 550px;  
-    padding:20px;
-    background:#f9f9f9;
-    border:2px solid #333;
-    left: 25%;
-    top: 30%;
-}
-
-.info input{
-    width: 350px;
-} 
-
-.info .btn {
-    margin: 20px;
-}
-
-.login {
-    position: absolute;
-    margin:0 auto; 
-    width:400px;
-    height: 275px;  
-    padding:20px;
-    background:#f9f9f9;
-    border:2px solid #333;
-    right: 25%;
-    top: 30%;
-}
-
-.login .btn {
-    margin: 20px;
-}
-
-.login input{
-    width: 350px;
-}
-
-.update {
-    position: absolute;
-    margin:0 auto; 
-    width:400px;
-    height: 350px;  
-    padding:20px;
-    background:#f9f9f9;
-    border:2px solid #333;
-    left: 150px;
-    top: 150px;
-}
-
-.update input{
-    width: 350px;
-} 
-
-.update .btn {
-    margin: 20px;
-}
-
 .topnav {
     background-color: #000000;
     overflow: hidden;
 }
 
-.logo a {
+.logo a{
     float: right;
     color: #f2f2f2;
     text-align: center;
@@ -99,7 +39,6 @@
     text-decoration: none;
     font-size: 22px;
 }
-
 .navigation a {
     float: left;
     color: #f2f2f2;
@@ -112,10 +51,11 @@
 .navigation a:hover {
     background-color: #ddd;
     color: black;
-}
+  }
 
 body {
     margin: 0px;
+    /*temp fix for whitespace above footer*/
     background-color: #000000;
 }
 
@@ -126,6 +66,16 @@ footer {
 }
 
 footer a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 0px;
+}
+
+footer p {
     float: left;
     color: #f2f2f2;
     text-align: center;
