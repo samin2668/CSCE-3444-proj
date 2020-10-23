@@ -31,7 +31,15 @@
     overflow: hidden;
 }
 
-.topnav a {
+.logo a{
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 22px;
+}
+.navigation a {
     float: left;
     color: #f2f2f2;
     text-align: center;
@@ -40,13 +48,15 @@
     font-size: 17px;
 }
 
-.topnav a:hover {
+.navigation a:hover {
     background-color: #ddd;
     color: black;
   }
 
 body {
     margin: 0px;
+    /*temp fix for whitespace above footer*/
+    background-color: #000000;
 }
 
 footer {
@@ -56,6 +66,16 @@ footer {
 }
 
 footer a {
+    float: right;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 0px;
+}
+
+footer p {
     float: left;
     color: #f2f2f2;
     text-align: center;
