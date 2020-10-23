@@ -37,7 +37,7 @@ def home():
 
 
 
-#Apply section of webpage
+# Page to create a user account
 @app.route('/apply/', methods=['POST', 'GET'])
 def apply():
     msg = ""
@@ -55,6 +55,10 @@ def apply():
         em_enter = request.form['email']
         pw_enter = request.form['pass']
         pwCon_enter = request.form['conPass']
+
+        # Hash the attempted password
+        pw_enter_hash = hashlib.sha256(pw_enter.encode())
+        pw_enter_hash = pw_enter_hash.hexdigest()
 
         try:
             if pw_enter == pwCon_enter:
@@ -85,7 +89,11 @@ def login():
         em_enter = request.form['email']
         pw_enter = request.form['pass']
 
-        msg = "Login attempt with email: " + em_enter + " and password: " + pw_enter
+        # Hash the attempted password
+        pw_enter_hash = hashlib.sha256(pw_enter.encode())
+        pw_enter_hash = pw_enter_hash.hexdigest()
+
+        msg = "Login attempt with email: " + em_enter + " and password: " + pw_enter_hash
 
 
     return render_template('login.html', msg=msg)
