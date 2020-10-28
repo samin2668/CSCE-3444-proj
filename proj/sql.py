@@ -28,7 +28,7 @@ def DelUser(email_form):
 		cur.execute("DELETE FROM USER WHERE EMAIL = :EMAIL)", {'EMAIL': email_form})
 
 def GetUserByEmail(email_form):
-	cur.execute("SELECT * FROM USER WHERE EMAIL =:EMAIL", {'EMAIL': email_form})
+	cur.execute("SELECT rowid, * FROM USER WHERE EMAIL =:EMAIL", {'EMAIL': email_form})
 	return cur.fetchall()
 
 
