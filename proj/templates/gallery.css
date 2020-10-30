@@ -3,8 +3,17 @@
   }
   
   /* Position the image container (needed to position the left and right arrows) */
+  .gallery-container {
+    position: absolute;
+    height: 50%;
+    width: 50%;
+    top: 25%;
+    left: 25%;
+  }
+
   .gallery {
-    position: relative;
+    background-color: black;
+    padding: 10px;
   }
   
   /* Hide the images by default */
@@ -22,7 +31,7 @@
   .next {
     cursor: pointer;
     position: absolute;
-    top: 40%;
+    top: 70%;
     width: auto;
     padding: 16px;
     margin-top: -50px;
@@ -63,6 +72,10 @@
     color: white;
   }
   
+  .row {
+    background-color: black;
+  }
+
   .row:after {
     content: "";
     display: table;
@@ -84,3 +97,4 @@
   .demo:hover {
     opacity: 1;
   }
+

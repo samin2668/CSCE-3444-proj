@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/proj/templates/style.css">
     <link rel="stylesheet" href="/proj/templates/navigation.css">
     <link rel="stylesheet" href="/proj/templates/gallery.css">
-    <title>Apply Now</title>
+    <title>Gallery</title>
 </head>
 <body>
     <!-- Links (sit on top) -->
@@ -41,39 +41,39 @@
     </div>
    
      <!-- Container for the image gallery -->
-    <div class="gallery">
-    <!-- Full-width images with number text -->
-        <div class="mySlides">
-            <div class="numbertext">1 / 6</div>
-            <img src="/proj/images/gallery/pexels-pixabay-261045.jpg" style="width:100%">
+    <div class="gallery-container">
+        <div class="gallery">
+            <!-- Full-width images with number text -->
+                <div class="mySlides">
+                    <div class="numbertext">1 / 2</div>
+                    <img src="/proj/images/gallery/pexels-pixabay-261045.jpg" style="width:100%; height:100%">
+                </div>
+          
+                <div class="mySlides">
+                    <div class="numbertext">2 / 2</div>
+                    <img src="/proj/images/gallery/pexels-skitterphoto-584399.jpg" style="width:100%; height:100%">
+                </div>
         </div>
-  
-        <div class="mySlides">
-            <div class="numbertext">2 / 6</div>
-            <img src="/proj/images/gallery/pexels-skitterphoto-584399.jpg" style="width:100%">
-        </div>
-  
+          
+            <!-- Next and previous buttons -->
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          
+            <!-- Image text -->
+            <div class="caption-container">
+              <p id="caption"></p>
+            </div>
+          
+            <!-- Thumbnail images -->
+            <div class="row">
+              <div class="column">
+                <img class="demo cursor" src="/proj/images/gallery/pexels-pixabay-261045.jpg" style="width:100%" onclick="currentSlide(1)" alt="Pool">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="/proj/images/gallery/pexels-skitterphoto-584399.jpg" style="width:100%" onclick="currentSlide(2)" alt="Living Room">
+              </div>
+            </div>
     </div>
-  
-    <!-- Next and previous buttons -->
-    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-    <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  
-    <!-- Image text -->
-    <div class="caption-container">
-      <p id="caption"></p>
-    </div>
-  
-    <!-- Thumbnail images -->
-    <div class="row">
-      <div class="column">
-        <img class="demo cursor" src="/proj/images/gallery/pexels-pixabay-261045.jpg" style="width:100%" onclick="currentSlide(1)" alt="Pool">
-      </div>
-      <div class="column">
-        <img class="demo cursor" src="/proj/images/gallery/pexels-skitterphoto-584399.jpg" style="width:100%" onclick="currentSlide(2)" alt="Living Room">
-      </div>
-    </div>
-    </div> 
 
     <script src="gallery.js"></script> 
 
