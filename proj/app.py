@@ -116,6 +116,47 @@ def register():
 
 
 
+
+@app.route('/amenities/', methods=['POST', 'GET'])
+def amenities():
+    msg=""
+
+    if request.method == 'POST':
+        pass
+        # any form inputs will go here
+
+
+    return render_template("amenities.html", msg=msg)
+
+
+
+
+@app.route('/gallery/', methods=['POST', 'GET'])
+def gallery():
+    msg=""
+
+    if request.method == 'POST':
+        pass
+        # any form inputs will go here
+
+
+    return render_template("gallery.html", msg=msg)
+
+
+
+@app.route('/floorplan/', methods=['POST', 'GET'])
+def floorplan():
+    msg=""
+
+    if request.method == 'POST':
+        pass
+        # any form inputs will go here
+
+
+    return render_template("floorplan.html", msg=msg)
+
+
+
 if __name__ == '__main__':
     app.run()
 
