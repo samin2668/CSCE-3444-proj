@@ -39,7 +39,7 @@
         
     </div>
     <!--This should automatically be filled out-->
-    <div class="update">
+    <!-- <div class="update">
         <div class="personal">
             <h1>Personal Info</h1>
             <form>
@@ -51,8 +51,49 @@
                 <input type="text" id="phone" name="phone"><br>
             </form>
         </div>
-        <button class="btn" >Update</button>
+        <button class="btn" >Update</button> -->
     </div>
+
+    <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
+        <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
+        <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+    </div>
+
+    <div id="London" class="tabcontent">
+    <h3>London</h3>
+        <p>London is the capital city of England.</p>
+    </div>
+
+    <div id="Paris" class="tabcontent">
+        <h3>Paris</h3>
+        <p>Paris is the capital of France.</p> 
+    </div>
+    
+    <div id="Tokyo" class="tabcontent">
+        <h3>Tokyo</h3>
+        <p>Tokyo is the capital of Japan.</p>
+    </div>
+
+    <script>
+        function openCity(evt, cityName) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
+
     <head>
         <title>Home</title>
         <div class="container">
@@ -61,9 +102,26 @@
     </head>
     <footer>
         <p>1234 Road St <br>Denton,Texas 76203</p>
-        <a href="#ContactUs" class="w3-button w3-block w3-black">Contact Us</a>
+        <a href="#ContactUs" id="myBtn"class="w3-button w3-block w3-black">Contact Us</a>
         <a href="#Accessibility" class="w3-button w3-block w3-black">Accessibility Statement</a>
         <a href="#FairHousing" class="w3-button w3-block w3-black">Fair Housing Statement</a>
+
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>
+                    Phone: (123)456-7890<br>
+                    Email: EagleApart@email.com<br>
+                    M – F : 9:00 am – 7:00 pm<br>
+                    SAT : 10:00 am – 5:00 pm<br>
+                    SUN : CLOSED
+                </p>
+            </div>
+        </div>
+
+        <script src="contactInfo.js"></script> 
+
     </footer>
 </body>
 </html>
