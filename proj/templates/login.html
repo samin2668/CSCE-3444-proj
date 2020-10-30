@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
     <link rel="stylesheet" href="/proj/templates/style.css">
     <link rel="stylesheet" href="/proj/templates/navigation.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navigation.css') }}">
     <title>Login</title>
 </head>
 <body>
@@ -13,30 +16,30 @@
         <div class="navigation">
 
             <div class="nav">
-                <a href="/proj/templates/floorplan.html" class="w3-button w3-block w3-black">Floor Plans</a>
+                <a href="/floorplan/" class="w3-button w3-block w3-black">Floor Plans</a>
             </div>
 
             <div class="nav">
-                <a href="/proj/templates/gallery.html" class="w3-button w3-block w3-black">Gallery</a>
+                <a href="/gallery/" class="w3-button w3-block w3-black">Gallery</a>
             </div>
 
             <div class="nav">
-                <a href="/proj/templates/amenities.html" class="w3-button w3-block w3-black">Amenities</a>
+                <a href="/amenities/" class="w3-button w3-block w3-black">Amenities</a>
             </div>
 
             <div class="nav">
-                <a href="\proj\templates\apply.html" class="w3-button w3-block w3-black">Apply</a>
+                <a href="/apply/" class="w3-button w3-block w3-black">Apply</a>
             </div>
 
             <div class="nav">
-                <a href="\proj\templates\login.html" class="w3-button w3-block w3-black">Login</a>
+                <a href="/login/" class="w3-button w3-block w3-black">Login</a>
             </div>
 
         </div>
         <div class="logo">
-            <a href="/proj/templates/home.html">EAGLE APARTMENTS</a>
+            <a href="/">EAGLE APARTMENTS</a>
         </div>
-        
+
     </div>
 
     <div class="login">
@@ -54,7 +57,7 @@
     <head>
         <title>Home</title>
         <div class="container">
-            <img src="/proj/static/images/pexels-adrien-olichon-2387674.jpg" alt="stock image">
+            <img src="{{ url_for('static', filename='/images/pexels-adrien-olichon-2387674.jpg') }}" alt="stock image">
         </div>
     </head>
     <footer>
@@ -77,7 +80,7 @@
             </div>
         </div>
 
-        <script src="contactInfo.js"></script> 
+        <script src="{{ url_for('static', filename='contactInfo.js') }}"></script>contactInfo.js
 
     </footer>
 </body>
