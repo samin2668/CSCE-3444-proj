@@ -42,6 +42,7 @@
         </div>
 
     </div>
+
     <!-- Header with image -->
     <head>
         <title>Home</title>
@@ -53,6 +54,7 @@
             </a>
         </div>
     </head>
+
     <footer>
         <p>1234 Road St <br>Denton,Texas 76203</p>
         <a href="#ContactUs" id="myBtn"class="w3-button w3-block w3-black">Contact Us</a>
@@ -76,6 +78,9 @@
         <script src="{{ url_for('static', filename='contactInfo.js') }}"></script>contactInfo.js
 
     </footer>
+    <div class="current-user" color="blue" background-color="white">
+      useremail:  {{ user }}
+    </div>
 </body>
 </html>
 
