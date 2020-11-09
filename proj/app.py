@@ -154,6 +154,18 @@ def login():
     return render_template('login.html', msg=msg)
 
 
+# Logout of the user's account
+@app.route('/logout/', methods=['POST', 'GET'])
+def logout():
+
+    # Clear the session variables
+    session["loggedin"] = False
+    session.pop('user_email', None)
+    session.clear()
+
+    # Return to the home page
+    return redirect(url_for('home'))
+
 
 # Apartment registration page
 @app.route('/register/', methods=['POST', 'GET'])
