@@ -15,7 +15,12 @@ cur.execute("""CREATE TABLE USER(
    PASSWORD CHAR(20)
 )""")
 
-
+cur.execute("""CREATE TABLE FLOOR_PLAN(
+   EMAIL CHAR(30),
+   LAYOUT CHAR(20) NOT NULL,
+   LIVING_ROOM BOOLEAN,
+   POOL BOOLEAN
+)""")
 
 
 
@@ -31,7 +36,13 @@ def GetUserByEmail(email_form):
 	cur.execute("SELECT rowid, * FROM USER WHERE EMAIL =:EMAIL", {'EMAIL': email_form})
 	return cur.fetchall()
 
+def AssignFloorPlanToUser(email_form, layout_form, livingroom_bool, pool_bool):
+	with conn:
+		cur.execute("INSERT INTO FLOOR_PLAN VALUES (:EMAIL, :LAYOUT, :LIVING_ROOM, :POOL)", {'EMAIL': email_form, 'LAYOUT': layout_form, 'LIVING_ROOM': livingroom_bool, 'POOL': pool_bool})
 
+def GetUserByFloorPlan(email_form):
+	cur.execute("SELECT rowid, * FROM FLOOR_PLAN WHERE EMAIL =:EMAIL", {'EMAIL': email_form})
+	return cur.fetchall()
 
 
 AddUser('Sedek', 'Ciprien', '1234567890', 'tigers@gmail.com', 'hashedpassword')
