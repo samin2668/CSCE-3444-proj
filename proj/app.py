@@ -17,6 +17,28 @@ app.secret_key = 'this is a key'
 con = sqlite3.connect('data.db', check_same_thread=False)
 
 
+#SQL Funtions
+def AddUser(firstname_form, lastname_form, phone_form, email_form, password_form):
+    with conn:
+        cur.execute("INSERT INTO USER VALUES (:FIRST_NAME, :LAST_NAME, :PHONE, :EMAIL, :PASSWORD)", {'FIRST_NAME': firstname_form, 'LAST_NAME': lastname_form, 'PHONE': phone_form, 'EMAIL': email_form, 'PASSWORD': password_form })
+
+def DeleteUser(email_form):
+    with conn:
+        cur.execute("DELETE FROM USER WHERE EMAIL = :EMAIL)", {'EMAIL': email_form})
+
+def GetUserByEmail(email_form):
+    cur.execute("SELECT rowid, * FROM USER WHERE EMAIL =:EMAIL", {'EMAIL': email_form})
+    return cur.fetchall()
+
+def AssignFloorPlanToUser(email_form, layout_form, livingroom_bool, pool_bool):
+    with conn:
+        cur.execute("INSERT INTO FLOOR_PLAN VALUES (:EMAIL, :LAYOUT, :LIVING_ROOM, :POOL)", {'EMAIL': email_form, 'LAYOUT': layout_form, 'LIVING_ROOM': livingroom_bool, 'POOL': pool_bool})
+
+def GetUsersFloorPlan(email_form):
+    cur.execute("SELECT rowid, * FROM FLOOR_PLAN WHERE EMAIL =:EMAIL", {'EMAIL': email_form})
+    return cur.fetchall()
+
+
 # Create a users table in the database
 cur = con.cursor()
 cur.execute(''' CREATE TABLE IF NOT EXISTS Users (
