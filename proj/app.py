@@ -47,7 +47,8 @@ cur.execute(''' CREATE TABLE IF NOT EXISTS Users (
     "lastname" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
 	"email"	TEXT NOT NULL,
-	"password"	TEXT NOT NULL
+	"password"	TEXT NOT NULL,
+    "unit #" INTERGER UNIQUE
 );
 ''')
 con.commit()
