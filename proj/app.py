@@ -182,12 +182,22 @@ def login():
 def logout():
 
     # Clear the session variables
-    session["loggedin"] = False
+    session['loggedin'] = False
     session.pop('user_email', None)
     session.clear()
 
     # Return to the home page
     return redirect(url_for('home'))
+
+
+@app.route('/user_home/', methods=['POST', 'GET'])
+def user_home():
+
+    if request.method == 'POST':
+        pass
+        # any form inputs will go here
+
+    return render_template("user_home.html", user_name=session['user_email'])
 
 
 # Apartment registration page

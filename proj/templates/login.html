@@ -31,9 +31,18 @@
                 <a href="/apply/" class="w3-button w3-block w3-black">Apply</a>
             </div>
 
+            {% if session["loggedin"] == True %}
+            <div class="nav">
+                <a href="/user_home/" class="w3-button w3-block w3-black">My home</a>
+            </div>
+            <div class="nav">
+                <a href="/logout/" class="w3-button w3-block w3-black">Log out</a>
+            </div>
+            {% else %}
             <div class="nav">
                 <a href="/login/" class="w3-button w3-block w3-black">Login</a>
             </div>
+            {% endif %}
 
         </div>
         <div class="logo">

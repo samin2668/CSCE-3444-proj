@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-<title>Home</title>
+<title>User Home Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/proj/templates/navigation.css">
@@ -35,9 +35,6 @@
 
             {% if session["loggedin"] == True %}
             <div class="nav">
-                <a href="/user_home/" class="w3-button w3-block w3-black">My home</a>
-            </div>
-            <div class="nav">
                 <a href="/logout/" class="w3-button w3-block w3-black">Log out</a>
             </div>
             {% else %}
@@ -55,13 +52,11 @@
 
     <!-- Header with image -->
     <head>
-        <title>Home</title>
+        <title>{{ user_name }} Home Page</title>
         <div class="container">
             <img src="{{ url_for('static', filename='/images/pexels-chait-goli-1918291.jpg') }}" alt="stock image" style="width:100%;height:100%;">
-            <div class="top-left"> <h1>Eagle<br>Apartments</h1> </div>
-            <a href="/apply/">
-                <button class="btn" >Apply Now!</button>
-            </a>
+            <div class="top-left"> {{user_name}}'s<br>user home page </div>
+
         </div>
     </head>
 
