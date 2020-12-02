@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
-    <link rel="stylesheet" href="/proj/templates/style.css">
+    <!--<link rel="stylesheet" href="/proj/templates/style.css">
     <link rel="stylesheet" href="/proj/templates/navigation.css">
     <link rel="stylesheet" href="/proj/templates/gallery.css">
-
+    -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='navigation.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='gallery.css') }}">
@@ -34,9 +34,18 @@
                 <a href="/apply/" class="w3-button w3-block w3-black">Apply</a>
             </div>
 
+            {% if session["loggedin"] == True %}
+            <div class="nav">
+                <a href="/user_home/" class="w3-button w3-block w3-black">My home</a>
+            </div>
+            <div class="nav">
+                <a href="/logout/" class="w3-button w3-block w3-black">Log out {{ session['user_email'] }}</a>
+            </div>
+            {% else %}
             <div class="nav">
                 <a href="/login/" class="w3-button w3-block w3-black">Login</a>
             </div>
+            {% endif %}
 
         </div>
         <div class="logo">
@@ -89,6 +98,44 @@
             <img src="{{ url_for('static', filename='/images/pexels-adrien-olichon-2387674.jpg') }}" alt="stock image">
         </div>
     </head>
+
+    <div class="show_units" style="background-color: #ffffff; padding: 10px;">
+      <h4>Available units</h4>
+      <table class="units_table">
+                  <tr>
+                      <th id="unit_price">Unit Price</th>
+                      <th id="unit_num">Unit Number</th>
+                      <th id="unit_plan">Floor Plan</th>
+                      <th id="unit_beds">Bedrooms</th>
+                      <th id="unit_baths">Bahrooms</th>
+                  </tr>
+              {% for unit in availUnits %}
+                  <tr>
+                      <td id="unit_price">${{ unit[1] }}</td>
+                      <td id="unit_num">{{ unit[0] }}</td>
+                      <td id="unit_plan">{{ unit[3] }}</td>
+                      <td id="unit_beds">{{ unit[4] }}</td>
+                      <td id="unit_baths">{{ unit[5] }}</td>
+                  </tr>
+              {%  endfor %}
+          </table>
+
+          <div class="select_unit">
+              <h4>Select a unit</h4>
+              <form action="{{ url_for('select') }}" method="post">
+                  <label for="selected">Type the unit number</label><br>
+                  <input type="text" id="selected" name="selected"><br>
+                  <label for="pay">Payment method</label><br>
+                  <input type="pay" id="pay" name="pay"><br>
+                  <button type="submit" class="btn" >Select</button>
+              </form>
+          </div>
+
+
+    </div>
+
+
+
     <footer>
         <p>1234 Road St <br>Denton,Texas 76203</p>
         <a href="#ContactUs" id="myBtn"class="w3-button w3-block w3-black">Contact Us</a>

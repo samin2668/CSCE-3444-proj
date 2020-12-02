@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
-    <link rel="stylesheet" href="/proj/templates/style.css">
-    <link rel="stylesheet" href="/proj/templates/navigation.css">
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>User Home Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/proj/templates/navigation.css">
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Monoton&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='navigation.css') }}">
-    <title>Login</title>
-</head>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='navigation.css') }}">
+
 <body>
     <!-- Links (sit on top) -->
     <div class="topnav">
@@ -31,10 +32,8 @@
                 <a href="/apply/" class="w3-button w3-block w3-black">Apply</a>
             </div>
 
+
             {% if session["loggedin"] == True %}
-            <div class="nav">
-                <a href="/user_home/" class="w3-button w3-block w3-black">My home</a>
-            </div>
             <div class="nav">
                 <a href="/logout/" class="w3-button w3-block w3-black">Log out {{ session['user_email'] }}</a>
             </div>
@@ -51,24 +50,16 @@
 
     </div>
 
-    <div class="login">
-        <h3>Login with existing account.</h3>
-        <form action="{{ url_for('login') }}" method="post">
-            <label for="email">Email*</label><br>
-            <input type="text" id="email" name="email"><br>
-            <label for="password">Password*</label><br>
-            <input type="password" id="pass" name="pass"><br>
-            <button type="submit" class="btn" >Login</button>
-        </form>
-    </div>
-
     <!-- Header with image -->
     <head>
-        <title>Home</title>
+        <title>{{ user_name }} Home Page</title>
         <div class="container">
-            <img src="{{ url_for('static', filename='/images/pexels-adrien-olichon-2387674.jpg') }}" alt="stock image">
+            <img src="{{ url_for('static', filename='/images/pexels-chait-goli-1918291.jpg') }}" alt="stock image" style="width:100%;height:100%;">
+            <div class="top-left"> {{session["user_email"]}}'s<br>user home page <br><br> Current unit: {{session["user_unit"]}} </div>
+
         </div>
     </head>
+
     <footer>
         <p>1234 Road St <br>Denton,Texas 76203</p>
         <a href="#ContactUs" id="myBtn"class="w3-button w3-block w3-black">Contact Us</a>
@@ -92,5 +83,15 @@
         <script src="{{ url_for('static', filename='contactInfo.js') }}"></script>contactInfo.js
 
     </footer>
+    <div class="current-user" color="blue" background-color="white">
+      useremail:  {{ user }}
+    </div>
 </body>
 </html>
+
+<!––floorplans
+    gallery
+    contact us
+    amenities
+    apply online
+    reviews-->

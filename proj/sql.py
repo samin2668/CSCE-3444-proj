@@ -6,7 +6,7 @@ conn = sqlite3.connect(':memory:') #saves to memory to make debugging easier
 cur = conn.cursor()
 
 
-
+#make tables
 cur.execute("""CREATE TABLE USER(
    FIRST_NAME CHAR(20) NOT NULL,
    LAST_NAME CHAR(20),
@@ -23,6 +23,7 @@ cur.execute("""CREATE TABLE FLOOR_PLAN(
 )""")
 
 
+#functions to edit the database tables
 
 def AddUser(firstname_form, lastname_form, phone_form, email_form, password_form):
 	with conn:
