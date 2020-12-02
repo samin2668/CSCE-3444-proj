@@ -36,7 +36,7 @@
                 <a href="/user_home/" class="w3-button w3-block w3-black">My home</a>
             </div>
             <div class="nav">
-                <a href="/logout/" class="w3-button w3-block w3-black">Log out</a>
+                <a href="/logout/" class="w3-button w3-block w3-black">Log out {{ session['user_email'] }}</a>
             </div>
             {% else %}
             <div class="nav">

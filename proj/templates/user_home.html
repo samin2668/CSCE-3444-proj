@@ -35,7 +35,7 @@
 
             {% if session["loggedin"] == True %}
             <div class="nav">
-                <a href="/logout/" class="w3-button w3-block w3-black">Log out</a>
+                <a href="/logout/" class="w3-button w3-block w3-black">Log out {{ session['user_email'] }}</a>
             </div>
             {% else %}
             <div class="nav">
@@ -55,7 +55,7 @@
         <title>{{ user_name }} Home Page</title>
         <div class="container">
             <img src="{{ url_for('static', filename='/images/pexels-chait-goli-1918291.jpg') }}" alt="stock image" style="width:100%;height:100%;">
-            <div class="top-left"> {{user_name}}'s<br>user home page </div>
+            <div class="top-left"> {{session["user_email"]}}'s<br>user home page <br><br> Current unit: {{session["user_unit"]}} </div>
 
         </div>
     </head>

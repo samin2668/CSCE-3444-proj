@@ -31,18 +31,49 @@ cur.execute(''' CREATE TABLE IF NOT EXISTS Users (
 );
 ''')
 
+# Create a FloorPlan table and create units if they do not yet exist
 cur.execute(''' CREATE TABLE IF NOT EXISTS FloorPlan (
- 	"unit #"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "unit_num"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "price" INTEGER NOT NULL,
     "currentUser" TEXT,
     "layout" TEXT NOT NULL,
     "bedrooms" INTEGER NOT NULL,
     "bathrooms" INTEGER NOT NULL,
     "livingroom" BOOLEAN NOT NULL,
-	"pool"	BOOLEAN NOT NULL
+    "pool"	BOOLEAN NOT NULL
 );
 ''')
 
+cur.execute("SELECT * FROM FloorPlan")
+if not cur.fetchone():
+    print("not populated")
+
+    # Create the apartment units in the FloorPlan table
+    for i in range(0,10):
+        price = 1200
+        layout = "Large"
+        beds = 2
+        baths = 2
+        cur.execute("INSERT INTO FloorPlan (price, layout, bedrooms, bathrooms, livingroom, pool) VALUES (?, ?, ?, ?, ?, ?)", (price, layout, beds, baths, True, True))
+
+    for i in range(0,10):
+        price = 900
+        layout = "Medium"
+        beds = 1
+        baths = 1
+        cur.execute("INSERT INTO FloorPlan (price, layout, bedrooms, bathrooms, livingroom, pool) VALUES (?, ?, ?, ?, ?, ?)", (price, layout, beds, baths, True, True))
+    for i in range(0,10):
+        price = 700
+        layout = "Small"
+        beds = 0
+        baths = 1
+        cur.execute("INSERT INTO FloorPlan (price, layout, bedrooms, bathrooms, livingroom, pool) VALUES (?, ?, ?, ?, ?, ?)", (price, layout, beds, baths, True, True))
+
+
+
 con.commit()
+
+
 
 
 
@@ -62,11 +93,15 @@ def GetUserByEmail(email_form):
 
 def AssignFloorPlanToUser(user_email_form, layout_form, bed_form, bath,form, livingroom_bool, pool_bool):
     with con:
-        cur.execute("INSERT INTO FLOOR_PLAN (currentUser, layout, bedrooms, bathrooms, livingroom, pool) VALUES (?, ?, ?, ?, ?, ?)", (user_email_form, layout_form, bed_form, bath,form, livingroom_bool, pool_bool))
+        cur.execute("INSERT INTO FloorPlan (currentUser, layout, bedrooms, bathrooms, livingroom, pool) VALUES (?, ?, ?, ?, ?, ?)", (user_email_form, layout_form, bed_form, bath_form, livingroom_bool, pool_bool))
 
 def GetUsersFloorPlan(user_email_form):
-    cur.execute("SELECT rowid, * FROM FLOOR_PLAN WHERE EMAIL = (?)", (user_email_form))
+    cur.execute("SELECT rowid, * FROM FloorPlan WHERE EMAIL = (?)", (user_email_form))
     return cur.fetchall()
+
+
+
+
 
 
 
@@ -180,6 +215,7 @@ def login():
                 msg = "Successful login!"
                 session['loggedin'] = True
                 session['user_email'] = em_enter
+                session['user_unit'] = 0
 
                 # Go back to the homepage
                 return redirect('/')
@@ -200,6 +236,7 @@ def logout():
     # Clear the session variables
     session['loggedin'] = False
     session.pop('user_email', None)
+    session.pop('user_unit', None)
     session.clear()
 
     # Return to the home page
@@ -268,9 +305,32 @@ def floorplan():
         pass
         # any form inputs will go here
 
+    # Show all available units
+    cur.execute("SELECT * FROM FloorPlan")
+    con.commit()
 
-    return render_template("floorplan.html", msg=msg)
+    units = cur.fetchall()
 
+
+
+    return render_template("floorplan.html", availUnits=units)
+
+
+@app.route('/select/', methods=['POST', 'GET'])
+def select():
+    msg=""
+
+    if request.method == 'POST':
+        unit_enter = request.form['selected']
+        pay_enter = request.form['pay']
+
+        session['user_unit'] = str(unit_enter)
+
+        print("User selected unit number " + unit_enter + " with " + pay_enter + " payment method")
+
+
+    #return render_template("user_home.html", user_name=session['user_email'], user_unit=session['user_unit'], msg=msg)
+    return redirect(url_for('user_home'))
 
 
 if __name__ == '__main__':
