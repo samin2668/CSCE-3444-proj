@@ -140,12 +140,19 @@ body {
   * {box-sizing: border-box}
 body {font-family: "Lato", sans-serif;}
 
+.RegContainer {
+  position: sticky;
+  top: 25%;
+  left: 25%;
+
+}
+
 /* Style the tab */
 .tab {
   float: left;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
-  width: 30%;
+  width: 20%;
   height: 300px;
 }
 
