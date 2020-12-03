@@ -141,10 +141,9 @@ body {
 body {font-family: "Lato", sans-serif;}
 
 .RegContainer {
-  position: sticky;
-  top: 25%;
+  position: absolute;
+  top: 30%;
   left: 25%;
-
 }
 
 /* Style the tab */
@@ -152,8 +151,8 @@ body {font-family: "Lato", sans-serif;}
   float: left;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
-  width: 20%;
-  height: 300px;
+  width: 10%;
+  height: 194px;
 }
 
 /* Style the buttons inside the tab */
@@ -183,24 +182,51 @@ body {font-family: "Lato", sans-serif;}
 
 /* Style the tab content */
 .tabcontent {
-  float: left;
   padding: 0px 12px;
   border: 1px solid #ccc;
-  width: 70%;
+  width: 800px;
   border-left: none;
-  height: 300px;
+  height: 500px;
   -webkit-animation: fadeEffect 1s;
   animation: fadeEffect 1s;
   background-color: white;
 }
-
-/* Fade in tabs */
-@-webkit-keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
+.RegContainer {
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 
-@keyframes fadeEffect {
-  from {opacity: 0;}
-  to {opacity: 1;}
+.tabcontent img {
+ float: left;
+ margin: 0px 0px;
+}
+
+.tabcontent p {
+  float: right;
+  text-align: center;
+}
+
+.FPtext {
+  position: absolute;
+  right: 20%;
+}
+
+.RegContainer a {
+  position: fixed;
+  bottom: 25%;
+  right: 25%;
+}
+
+.RegContainer .pref {
+    background-color: #ff8b06;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    position: relative;
+    left: 50%;
 }

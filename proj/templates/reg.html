@@ -5,8 +5,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
 
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='navigation.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css')}}">
     <title>Apply Now</title>
 </head>
 <body>
@@ -64,30 +64,68 @@
         </div>
         <button class="btn" >Update</button> 
     </div>-->
+    
     <div class="RegContainer">
         <div class="tab">
-            <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">London</button>
-            <button class="tablinks" onclick="openCity(event, 'Paris')">Paris</button>
-            <button class="tablinks" onclick="openCity(event, 'Tokyo')">Tokyo</button>
+            <button class="tablinks" onclick="openPlan(event, 'A')" id="defaultOpen">A</button>
+            <button class="tablinks" onclick="openPlan(event, 'B')">B</button>
+            <button class="tablinks" onclick="openPlan(event, 'C')">C</button>
         </div>
     
-        <div id="London" class="tabcontent">
-        <h3>London</h3>
-            <p>London is the capital city of England.</p>
+        <div id="A" class="tabcontent">
+            <h3>Floorplan A</h3>
+            <img src="{{ url_for('static', filename='images/floorplans/a.png') }}" alt="A">
+            
+            <div class="FPtext">
+                <pre class ="tab1">Bedrooms:	1</pre>
+                <pre class ="tab2">Baths:		1</pre>
+                <pre class ="tab3">Rent:		$500</pre>
+                <pre class ="tab4">Patio:		&#10003;</pre>
+                <pre class ="tab5">Deck:		&#10003;</pre>
+                <pre class ="tab6">Storage:	&#10003;</pre>
+                <pre class ="tab7">Fireplace:	x</pre>
+            </div>
+            <a href="#">
+                <button class="pref">Set as my Preferred Floorplan</button>
+            </a>
         </div>
     
-        <div id="Paris" class="tabcontent">
-            <h3>Paris</h3>
-            <p>Paris is the capital of France.</p>
+        <div id="B" class="tabcontent">
+            <h3>Floorplan B</h3>
+            <img src="{{ url_for('static', filename='images/floorplans/b.png') }}" alt="A">
+            <div class="FPtext">
+                <pre class ="tab1">Bedrooms:	1</pre>
+                <pre class ="tab2">Baths:		1</pre>
+                <pre class ="tab3">Rent:		$500</pre>
+                <pre class ="tab4">Patio:		&#10003;</pre>
+                <pre class ="tab5">Deck:		x</pre>
+                <pre class ="tab6">Storage:	&#10003;</pre>
+                <pre class ="tab7">Fireplace:	&#10003;</pre>
+            </div>
+            <a href="#">
+                <button class="pref">Set as my Preferred Floorplan</button>
+            </a>
         </div>
     
-        <div id="Tokyo" class="tabcontent">
-            <h3>Tokyo</h3>
-            <p>Tokyo is the capital of Japan.</p>
+        <div id="C" class="tabcontent">
+            <h3>Floorplan C</h3>
+            <img src="{{ url_for('static', filename='images/floorplans/c.png') }}" alt="A">
+            <div class="FPtext">
+                <pre class ="tab1">Bedrooms:	1</pre>
+                <pre class ="tab2">Baths:		1</pre>
+                <pre class ="tab3">Rent:		$500</pre>
+                <pre class ="tab4">Patio:		&#10003;</pre>
+                <pre class ="tab5">Deck:		&#10003;</pre>
+                <pre class ="tab6">Storage:	&#10003;</pre>
+                <pre class ="tab7">Fireplace:	&#10003;</pre>
+            </div>
+            <a href="#">
+                <button class="pref">Set as my Preferred Floorplan</button>
+            </a>
         </div>
     
         <script>
-            function openCity(evt, cityName) {
+            function openPlan(evt, plan) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
             for (i = 0; i < tabcontent.length; i++) {
@@ -97,7 +135,7 @@
             for (i = 0; i < tablinks.length; i++) {
                 tablinks[i].className = tablinks[i].className.replace(" active", "");
             }
-                document.getElementById(cityName).style.display = "block";
+                document.getElementById(plan).style.display = "block";
                 evt.currentTarget.className += " active";
             }
     
