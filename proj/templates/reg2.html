@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
+
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css')}}">
+    <title>Apply Now</title>
+</head>
+<body>
+    <!-- Links (sit on top) -->
+    <div class="topnav">
+        <div class="navigation">
+
+            <div class="nav">
+                <a href="/floorplan/" class="w3-button w3-block w3-black">Floor Plans</a>
+            </div>
+
+            <div class="nav">
+                <a href="/gallery/" class="w3-button w3-block w3-black">Gallery</a>
+            </div>
+
+            <div class="nav">
+                <a href="/amenities/" class="w3-button w3-block w3-black">Amenities</a>
+            </div>
+
+            <div class="nav">
+                <a href="/apply/" class="w3-button w3-block w3-black">Apply</a>
+            </div>
+
+            {% if session["loggedin"] == True %}
+            <div class="nav">
+                <a href="/user_home/" class="w3-button w3-block w3-black">My home</a>
+            </div>
+            <div class="nav">
+                <a href="/logout/" class="w3-button w3-block w3-black">Log out {{ session['user_email'] }}</a>
+            </div>
+            {% else %}
+            <div class="nav">
+                <a href="/login/" class="w3-button w3-block w3-black">Login</a>
+            </div>
+            {% endif %}
+
+        </div>
+        <div class="logo">
+            <a href="/">EAGLE APARTMENTS</a>
+        </div>
+
+    </div>
+
+    
+
+    <script src="{{ url_for('static', filename='js/contactInfo.js') }}"></script>
+
+    </footer>
+</body>
+</html>
