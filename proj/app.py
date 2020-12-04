@@ -302,6 +302,20 @@ def register():
     return render_template("reg.html", msg=msg)
 
 
+@app.route('/register1/', methods=['POST', 'GET'])
+def register1():
+    msg=""
+
+    # User register form
+    if request.method == 'POST':
+        pass
+        # all form inputs will go here
+
+
+
+    return render_template("reg2.html", msg=msg)
+
+
 
 
 @app.route('/amenities/', methods=['POST', 'GET'])

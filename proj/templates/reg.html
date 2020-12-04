@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
 
-
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css')}}">
     <title>Apply Now</title>
 </head>
@@ -66,7 +65,7 @@
     </div>-->
     
     <div class="RegContainer">
-        <div class="tab">
+        <div class="tabs">
             <button class="tablinks" onclick="openPlan(event, 'A')" id="defaultOpen">A</button>
             <button class="tablinks" onclick="openPlan(event, 'B')">B</button>
             <button class="tablinks" onclick="openPlan(event, 'C')">C</button>
@@ -102,7 +101,7 @@
                 <pre class ="tab6">Storage:	&#10003;</pre>
                 <pre class ="tab7">Fireplace:	&#10003;</pre>
             </div>
-            <a href="#">
+            <a href="/register1/">
                 <button class="pref">Set as my Preferred Floorplan</button>
             </a>
         </div>

@@ -5,9 +5,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Helvetica">
 
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='form.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css')}}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navigation.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/stylesheet.css')}}">
     <title>Apply Now</title>
 </head>
 
@@ -44,14 +44,14 @@
     </div>
 
     <div class="reg">            
-            <form id="regForm" action="/action_page.php">
+            <form id="regForm">
               <h1>Register:</h1>
               <!-- One "tab" for each step in the form: -->
               <div class="tab">Personal Info:
-                <p><input type="text" oninput="this.className = ''" name="fname" value="{{ userData[1] }}"></p>
-                <p><input type="text" oninput="this.className = ''" name="lname" value="{{ userData[2] }}"></p>
-                <p><input type="text" oninput="this.className = ''" name="fname" value="{{ userData[4] }}"></p>
-                <p><input type="text" oninput="this.className = ''" name="ph#" value="{{ userData[3] }}"></p>
+                <p><input type="text" oninput="this.className = ''" name="fname" value="samin"></p>
+                <p><input type="text" oninput="this.className = ''" name="lname" value="yasar"></p>
+                <p><input type="text" oninput="this.className = ''" name="email" value="email"></p>
+                <p><input type="text" oninput="this.className = ''" name="ph#" value="number"></p>
               </div>
               <div class="tab">Contact Info:
                 <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
@@ -82,12 +82,12 @@
             </form>          
     </div>
 
-    <script src="form.js"></script> 
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script> 
 
     <head>
         <title>Home</title>
         <div class="container">
-            <img src="{{ url_for('static', filename='images/floorplans/a.png') }}" alt="stock image">
+            <img src="{{ url_for('static', filename='images/pexels-adrien-olichon-2387674.jpg') }}" alt="stock image">
         </div>
     </head>
 
