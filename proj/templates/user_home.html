@@ -55,7 +55,21 @@
         <title>{{ user_name }} Home Page</title>
         <div class="container">
             <img src="{{ url_for('static', filename='/images/pexels-chait-goli-1918291.jpg') }}" alt="stock image" style="width:100%;height:100%;">
-            <div class="top-left"> {{session["user_email"]}}'s<br>user home page <br><br> Current unit: {{session["user_unit"]}} </div>
+            <div class="top-left">
+
+              <!--
+              userData[0] =  id
+              userData[1] =  First name
+              userData[2] =  Last name
+              userData[3] =  phone
+              userData[4] =  email
+              userData[6] =  unit #
+              -->
+
+              {{ userData[4] }}'s home page
+              <br>
+              Current unit: {{ userData[6] }}
+            </div>
 
         </div>
     </head>

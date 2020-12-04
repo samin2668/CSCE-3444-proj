@@ -257,12 +257,15 @@ def logout():
 @app.route('/user_home/', methods=['POST', 'GET'])
 def user_home():
 
+    cur.execute('''SELECT * FROM Users WHERE email = (?)''', [session['user_email']])
+    con.commit()
+    userRow = cur.fetchone()
 
     if request.method == 'POST':
         pass
         # any form inputs will go here
 
-    return render_template("user_home.html", user_name=session['user_email'])
+    return render_template("user_home.html", user_name=session['user_email'], userData=userRow)
 
 
 # Apartment registration page
@@ -340,7 +343,7 @@ def floorplan():
             return render_template("floorplan.html", msg=msg, availUnits=units)
 
 
-    
+
     return render_template("floorplan.html", availUnits=units)
 
 
