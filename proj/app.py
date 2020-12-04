@@ -14,7 +14,7 @@ app.secret_key = 'this is a key'
 
 
 # Create database for user accounts and apartment units and anything else
-con = sqlite3.connect('data.db', check_same_thread=False)
+con = sqlite3.connect('data.db', check_same_thread=False, timeout=10000)
 
 
 # Create a users and floorplan table in the database
@@ -70,10 +70,17 @@ if not cur.fetchone():
         cur.execute("INSERT INTO FloorPlan (price, layout, bedrooms, bathrooms, livingroom, pool) VALUES (?, ?, ?, ?, ?, ?)", (price, layout, beds, baths, True, True))
 
 
-
 con.commit()
 
 
+
+# Get all available units
+def getAvail():
+    cur.execute("SELECT * FROM FloorPlan WHERE currentUser IS NULL")
+    con.commit()
+    return cur.fetchall()
+
+units = getAvail()
 
 
 
@@ -100,7 +107,11 @@ def GetUsersFloorPlan(user_email_form):
     return cur.fetchall()
 
 
-
+def update(user, unit):
+    with con:
+        cur.execute("UPDATE FloorPlan SET currentUser = (?) WHERE unit_num = (?)", (user, unit))
+        cur.execute("UPDATE Users SET 'unit #' = (?) WHERE email = (?)", (unit, user))
+        con.commit()
 
 
 
@@ -246,6 +257,7 @@ def logout():
 @app.route('/user_home/', methods=['POST', 'GET'])
 def user_home():
 
+
     if request.method == 'POST':
         pass
         # any form inputs will go here
@@ -305,11 +317,6 @@ def floorplan():
         pass
         # any form inputs will go here
 
-    # Show all available units
-    cur.execute("SELECT * FROM FloorPlan")
-    con.commit()
-
-    units = cur.fetchall()
 
 
 
@@ -320,20 +327,35 @@ def floorplan():
 def select():
     msg=""
 
+
     if request.method == 'POST':
+
         unit_enter = request.form['selected']
         pay_enter = request.form['pay']
 
-        session['user_unit'] = str(unit_enter)
 
-        print("User selected unit number " + unit_enter + " with " + pay_enter + " payment method")
+        if session['loggedin'] == True:
 
 
-    #return render_template("user_home.html", user_name=session['user_email'], user_unit=session['user_unit'], msg=msg)
-    return redirect(url_for('user_home'))
+
+            update(session['user_email'], unit_enter)
+
+            session['user_unit'] = str(unit_enter)
+
+
+            print("User selected unit number " + unit_enter + " with " + pay_enter + " payment method")
+
+
+            #return render_template("user_home.html", user_name=session['user_email'], user_unit=session['user_unit'], msg=msg)
+            return redirect(url_for('user_home'))
+
+        else:
+            msg = "Please login to select a unit"
+            return render_template("floorplan.html", msg=msg)
 
 
 if __name__ == '__main__':
     app.run(debug = True)
+
 
     con.close()
