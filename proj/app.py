@@ -113,7 +113,13 @@ def update(user, unit):
         cur.execute("UPDATE Users SET 'unit #' = (?) WHERE email = (?)", (unit, user))
         con.commit()
 
+def InsertTerms(email_form, firstname_form, lastname_form, lease_type_form, start_date_form, end_date_form, insurance_form, security_deposit_form):
+	with conn:
+		cur.execute("INSERT INTO Terms (email, first_name, last_name, lease_type, start_date, end_date, insurance, security_deposit) VALUES (?, ?, ?, ?, ?, ?, ?, ?)", (email_form, firstname_form, lastname_form, lease_type_form, start_date_form, end_date_form, insurance_form, security_deposit_form))
 
+def GetTerms(email_form, firstname_form, lastname_form):
+	cur.execute("SELECT rowid,  * FROM Terms WHERE FIRST_NAME = (?) AND LAST_NAME= (?) AND EMAIL = (?)", (firstname_form , lastname_form , email_form))
+	return cur.fetchall()
 
 
 #Homepage
