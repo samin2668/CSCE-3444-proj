@@ -313,20 +313,6 @@ def gallery():
 def floorplan():
     msg=""
 
-    if request.method == 'POST':
-        pass
-        # any form inputs will go here
-
-
-
-
-    return render_template("floorplan.html", availUnits=units)
-
-
-@app.route('/select/', methods=['POST', 'GET'])
-def select():
-    msg=""
-
 
     if request.method == 'POST':
 
@@ -352,6 +338,11 @@ def select():
         else:
             msg = "Please login to select a unit"
             return render_template("floorplan.html", msg=msg)
+
+
+    
+    return render_template("floorplan.html", availUnits=units)
+
 
 
 if __name__ == '__main__':
