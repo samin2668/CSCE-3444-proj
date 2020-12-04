@@ -245,7 +245,6 @@ def login():
                 msg = "Successful login!"
                 session['loggedin'] = True
                 session['user_email'] = em_enter
-                session['user_unit'] = 0
 
                 # Go back to the homepage
                 return redirect('/')
@@ -266,7 +265,6 @@ def logout():
     # Clear the session variables
     session['loggedin'] = False
     session.pop('user_email', None)
-    session.pop('user_unit', None)
     session.clear()
 
     # Return to the home page
@@ -352,23 +350,29 @@ def floorplan():
 
     if request.method == 'POST':
 
-        unit_enter = request.form['selected']
-        pay_enter = request.form['pay']
-
 
         if session['loggedin'] == True:
 
+            unit_enter = request.form['selected']
+            pay_enter = request.form['pay']
+
+            cur.execute('''SELECT * FROM Users WHERE email = (?)''', [session['user_email']])
+            con.commit()
+            userRow = cur.fetchone()
+
+            # userRow[1] = first name
+            # userRow[2] = last name
+            # userRow[4] = email
+            # userRow[6] = unit #
 
 
-            update(session['user_email'], unit_enter)
-
-            session['user_unit'] = str(unit_enter)
+            # Updates the values in the database
+            update(session['user_email'], unit_enter) #add payment method
 
 
             print("User selected unit number " + unit_enter + " with " + pay_enter + " payment method")
 
 
-            #return render_template("user_home.html", user_name=session['user_email'], user_unit=session['user_unit'], msg=msg)
             return redirect(url_for('user_home'))
 
         else:
