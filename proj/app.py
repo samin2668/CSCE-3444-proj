@@ -337,7 +337,7 @@ def floorplan():
 
         else:
             msg = "Please login to select a unit"
-            return render_template("floorplan.html", msg=msg)
+            return render_template("floorplan.html", msg=msg, availUnits=units)
 
 
     
