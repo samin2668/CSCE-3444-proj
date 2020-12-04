@@ -44,6 +44,19 @@ cur.execute(''' CREATE TABLE IF NOT EXISTS FloorPlan (
 );
 ''')
 
+#Create a Terms table if it does not exist
+cur.execute("""CREATE TABLE IF NOT EXISTS Terms(
+   "id"	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+   "email" TEXT NOT NULL,
+   "first_name" TEXT NOT NULL,
+   "last_name" TEXT NOT NULL,
+   "lease_type" TEXT NOT NULL,
+   "start_date" TEXT NOT NULL,
+   "end_date" TEXT NOT NULL,
+   "insurance" INTEGER NOT NULL,
+   "security_deposit" INTEGER NOT NULL
+)""")
+
 cur.execute("SELECT * FROM FloorPlan")
 if not cur.fetchone():
     print("not populated")
