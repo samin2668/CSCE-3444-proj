@@ -27,7 +27,7 @@ cur.execute(''' CREATE TABLE IF NOT EXISTS Users (
     "phone" TEXT NOT NULL,
 	"email"	TEXT NOT NULL,
 	"password"	TEXT NOT NULL,
-    "unit #" INTERGER UNIQUE
+    "unit_num" TEXT UNIQUE
 );
 ''')
 
@@ -120,10 +120,10 @@ def GetUsersFloorPlan(user_email_form):
     return cur.fetchall()
 
 
-def update(user, unit):
+def update(user, unit_user, unit_fp):
     with con:
-        cur.execute("UPDATE FloorPlan SET currentUser = (?) WHERE unit_num = (?)", (user, unit))
-        cur.execute("UPDATE Users SET 'unit #' = (?) WHERE email = (?)", (unit, user))
+        cur.execute("UPDATE FloorPlan SET currentUser = (?) WHERE unit_num = (?)", (user, unit_fp))
+        cur.execute("UPDATE Users SET unit_num = (?) WHERE email = (?)", (unit_user, user))
         con.commit()
 
 def InsertTerms(email_form, firstname_form, lastname_form, lease_type_form, start_date_form, end_date_form, insurance_form, security_deposit_form):
@@ -363,12 +363,21 @@ def floorplan():
             # userRow[1] = first name
             # userRow[2] = last name
             # userRow[4] = email
-            # userRow[6] = unit #
+            # userRow[6] = unit_num
 
+            print(str(userRow[6]))
+
+            if str(userRow[6]) == "None":
+                    unit_nums = str(unit_enter)
+            else:
+                unit_nums = str(userRow[6]) + ", " + str(unit_enter)
 
             # Updates the values in the database
-            update(session['user_email'], unit_enter) #add payment method
+            update(session['user_email'], unit_nums, unit_enter) #add payment method
 
+            # Refresh list of available units
+            global units
+            units = getAvail()
 
             print("User selected unit number " + unit_enter + " with " + pay_enter + " payment method")
 
