@@ -9,3 +9,4 @@ On MacOS or Linux:
 2. Run the main application by entering the following command in the terminal: python3 app.py
 
 3. Open a web browser and enter into the address bar: localhost:5000
+    This will display the home page where the program begins
