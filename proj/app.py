@@ -299,7 +299,8 @@ def user_home():
         ln_enter = request.form['lname']
         phone_enter = request.form['phone']
         em_enter = request.form['email']
-
+	UpdateUserInfo(fname, lname, phone, email)
+	
         print("Good POST request")
 
 
