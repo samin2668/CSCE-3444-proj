@@ -298,7 +298,8 @@ def user_home():
         fn_enter = request.form['fname']
         ln_enter = request.form['lname']
         phone_enter = request.form['phone']
-        em_enter = request.form['email']	
+        em_enter = request.form['email']
+	UpdateUserInfo(fname, lname, phone, email)
         print("Good POST request")
 
 
