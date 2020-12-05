@@ -47,25 +47,24 @@
             <form id="regForm">
               <h1>Register:</h1>
               <!-- One "tab" for each step in the form: -->
-              <div class="tab">Personal Info:
-                <p><input type="text" oninput="this.className = ''" name="fname" value="samin"></p>
-                <p><input type="text" oninput="this.className = ''" name="lname" value="yasar"></p>
-                <p><input type="text" oninput="this.className = ''" name="email" value="email"></p>
-                <p><input type="text" oninput="this.className = ''" name="ph#" value="number"></p>
+              <div class="tab">Current Adress:
+                <p><input placeholder="Address..." oninput="this.className = ''" name="address"></p>
+                <p><input placeholder="City.." oninput="this.className = ''" name="city"></p>
+                <p><input placeholder="State.." oninput="this.className = ''" name="state"></p>
+
               </div>
-              <div class="tab">Contact Info:
-                <p><input placeholder="E-mail..." oninput="this.className = ''" name="email"></p>
-                <p><input placeholder="Phone..." oninput="this.className = ''" name="phone"></p>
+              <div class="tab">Move in Date:
+                <p><input placeholder="Move in date..." type="date" placeholder="01/01/1970" oninput="this.className = ''" name="MovInDate"></p>
+                <label for="terms">Lease Length</label>
+                <select placeholder="Lease Length..." name="terms" id="terms">
+                  <option value="6">6 Months</option>
+                  <option value="12">12 Months</option>
+                  <option value="18">18 Months</option>
+                  <option value="24">24 Months</option>
+
+                </select>
               </div>
-              <div class="tab">Birthday:
-                <p><input placeholder="dd" oninput="this.className = ''" name="dd"></p>
-                <p><input placeholder="mm" oninput="this.className = ''" name="nn"></p>
-                <p><input placeholder="yyyy" oninput="this.className = ''" name="yyyy"></p>
-              </div>
-              <div class="tab">Login Info:
-                <p><input placeholder="Username..." oninput="this.className = ''" name="uname"></p>
-                <p><input placeholder="Password..." oninput="this.className = ''" name="pword" type="password"></p>
-              </div>
+              
               <div style="overflow:auto;">
                 <div style="float:right;">
                   <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -76,8 +75,7 @@
               <div style="text-align:center;margin-top:40px;">
                 <span class="step"></span>
                 <span class="step"></span>
-                <span class="step"></span>
-                <span class="step"></span>
+
               </div>
             </form>          
     </div>
@@ -110,6 +108,17 @@
                 </p>
             </div>
         </div>
+
+        <div id="mod" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <label for="okay">Registration complete clik ok to continue</label>
+              <a id="okay" href="/user_home/">
+                <button>OK</button>
+              </a>
+          </div>
+      </div>
 
         <script src="{{ url_for('static', filename='js/contactInfo.js') }}"></script>
 
