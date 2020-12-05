@@ -58,13 +58,17 @@
         <div class="gallery">
             <!-- Full-width images with number text -->
                 <div class="mySlides">
-                    <div class="numbertext">1 / 2</div>
-                    <img src="{{ url_for('static', filename='/images/gallery/pexels-pixabay-261045.jpg') }}" style="width:100%; height:100%">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="{{ url_for('static', filename='images/floorplans/a.png') }}" style="width:90%; height:75%">
                 </div>
 
                 <div class="mySlides">
-                    <div class="numbertext">2 / 2</div>
-                    <img src="{{ url_for('static', filename='/images/gallery/pexels-skitterphoto-584399.jpg') }}" style="width:100%; height:100%">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="{{ url_for('static', filename='images/floorplans/b.png') }}" style="width:70%; height:50%">
+                </div>
+                <div class="mySlides">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="{{ url_for('static', filename='images/floorplans/c.png') }}" style="width:100%; height:75%">
                 </div>
         </div>
 
@@ -80,10 +84,13 @@
             <!-- Thumbnail images -->
             <div class="row">
               <div class="column">
-                <img class="demo cursor" src="{{ url_for('static', filename='/images/gallery/pexels-pixabay-261045.jpg') }}" style="width:100%" onclick="currentSlide(1)" alt="Pool">
+                <img class="demo cursor" src="{{ url_for('static', filename='images/floorplans/a.png') }}" style="width:100%" onclick="currentSlide(1)" alt="Floor Plan A">
               </div>
               <div class="column">
-                <img class="demo cursor" src="{{ url_for('static', filename='/images/gallery/pexels-skitterphoto-584399.jpg') }}" style="width:100%" onclick="currentSlide(2)" alt="Living Room">
+                <img class="demo cursor" src="{{ url_for('static', filename='images/floorplans/b.png') }}" style="width:100%" onclick="currentSlide(2)" alt="Floor Plan B">
+              </div>
+              <div class="column">
+                <img class="demo cursor" src="{{ url_for('static', filename='images/floorplans/c.png') }}" style="width:100%" onclick="currentSlide(3)" alt="Floor Plan C">
               </div>
             </div>
     </div>
