@@ -279,6 +279,7 @@ def logout():
 
 @app.route('/user_home/', methods=['POST', 'GET'])
 def user_home():
+    msg=""
 
     # Prevent access to user home page if they are not logged in
     if not session['loggedin']:
@@ -299,6 +300,10 @@ def user_home():
         ln_enter = request.form['lname']
         phone_enter = request.form['phone']
         em_enter = request.form['email']
+
+        if not fn_enter or not ln_enter or not phone_enter or not em_enter:
+            msg="Please fill out all fields"
+            return render_template("user_home.html", user_name=session['user_email'], userData=userRow, msg=msg)
 
         UpdateUserInfo(fn_enter, ln_enter, phone_enter, em_enter)
 
