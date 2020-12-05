@@ -136,7 +136,7 @@ def GetTerms(email_form, firstname_form, lastname_form):
 
 def UpdateUserInfo(firstname_form, lastname_form, phone_form, email_form):
     with conn:
-        cur.execute("UPDATE Users SET firstname=(?), lastname=(?), phone=(?), email=(?) WHERE email = session['user_email']", (firstname_form, lastname_form, phone_form, email_form))
+        cur.execute("UPDATE Users SET firstname=(?), lastname=(?), phone=(?), email=(?) WHERE email = (?)", (firstname_form, lastname_form, phone_form, email_form, session['user_email']))
 
 
 
