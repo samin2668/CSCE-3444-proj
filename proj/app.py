@@ -135,9 +135,9 @@ def GetTerms(email_form, firstname_form, lastname_form):
 	return cur.fetchall()
 
 def UpdateUserInfo(firstname_form, lastname_form, phone_form, email_form):
-    with conn:
+    with con:
         cur.execute("UPDATE Users SET firstname=(?), lastname=(?), phone=(?), email=(?) WHERE email = (?)", (firstname_form, lastname_form, phone_form, email_form, session['user_email']))
-
+        con.commit()
 
 
 
@@ -299,6 +299,9 @@ def user_home():
         ln_enter = request.form['lname']
         phone_enter = request.form['phone']
         em_enter = request.form['email']
+
+        UpdateUserInfo(fn_enter, ln_enter, phone_enter, em_enter)
+
         print("Good POST request")
 
 
