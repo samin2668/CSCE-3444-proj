@@ -289,6 +289,7 @@ def user_home():
         phone_enter = request.form['phone']
         em_enter = request.form['email']
 
+        print("Good POST request")
 
 
     return render_template("user_home.html", user_name=session['user_email'], userData=userRow)
