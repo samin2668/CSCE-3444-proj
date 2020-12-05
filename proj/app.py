@@ -279,8 +279,17 @@ def user_home():
     userRow = cur.fetchone()
 
     if request.method == 'POST':
-        pass
+        #pass
         # any form inputs will go here
+
+        # User updates account
+        # Get the form input
+        fn_enter = request.form['fname']
+        ln_enter = request.form['lname']
+        phone_enter = request.form['phone']
+        em_enter = request.form['email']
+
+
 
     return render_template("user_home.html", user_name=session['user_email'], userData=userRow)
 
