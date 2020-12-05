@@ -134,6 +134,12 @@ def GetTerms(email_form, firstname_form, lastname_form):
 	cur.execute("SELECT rowid,  * FROM Terms WHERE FIRST_NAME = (?) AND LAST_NAME= (?) AND EMAIL = (?)", (firstname_form , lastname_form , email_form))
 	return cur.fetchall()
 
+def UpdateUserInfo(firstname_form, lastname_form, phone_form, email_form):
+    with conn:
+        cur.execute("UPDATE Users SET firstname=(?), lastname=(?), phone=(?), email=(?) WHERE email = session['user_email']", (firstname_form, lastname_form, phone_form, email_form))
+
+
+
 
 #Homepage
 @app.route('/')
