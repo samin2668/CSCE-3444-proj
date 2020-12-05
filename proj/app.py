@@ -280,6 +280,11 @@ def logout():
 @app.route('/user_home/', methods=['POST', 'GET'])
 def user_home():
 
+    # Prevent access to user home page if they are not logged in
+    if not session['loggedin']:
+        print("must log in")
+        return redirect(url_for('home'))
+
     cur.execute('''SELECT * FROM Users WHERE email = (?)''', [session['user_email']])
     con.commit()
     userRow = cur.fetchone()
