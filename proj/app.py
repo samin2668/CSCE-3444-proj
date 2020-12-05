@@ -184,7 +184,7 @@ def apply():
         # Require all fields be entered
         if not fn_enter or not ln_enter or not phone_enter or not em_enter or not pw_enter or not pwCon_enter:
             msg="Please fill out all fields"
-            return render_template("apply.html", user_name=session['user_email'], msg=msg)
+            return render_template("apply.html", user_name=session['user_email'],   msg=msg)
 
 
         # Hash the attempted password
@@ -335,20 +335,6 @@ def register():
     return render_template("reg.html", msg=msg)
 
 
-@app.route('/register1/', methods=['POST', 'GET'])
-def register1():
-    msg=""
-
-    # User register form
-    if request.method == 'POST':
-        pass
-        # all form inputs will go here
-
-
-
-    return render_template("reg2.html", msg=msg)
-
-
 
 
 @app.route('/amenities/', methods=['POST', 'GET'])
@@ -377,6 +363,22 @@ def gallery():
     return render_template("gallery.html", msg=msg)
 
 
+@app.route('/register1/', methods=['POST', 'GET'])
+def register1():
+    msg=""
+
+    # User register form
+    if request.method == 'POST':
+        pass
+        # all form inputs will go here
+
+        return redirect(url_for('user_home'))
+
+
+    return render_template("reg2.html", msg=msg)
+
+
+
 
 @app.route('/floorplan/', methods=['POST', 'GET'])
 def floorplan():
@@ -391,17 +393,7 @@ def floorplan():
             unit_enter = request.form['selected']
             pay_enter = request.form['pay']
 
-            global units
-            u_nums = []
-            for unit in units:
-                 u_nums.append(unit[0])
 
-            if unit_enter not in u_nums:
-                msg = "Unit " + str(unit_enter) + " not available"
-                return render_template("floorplan.html", msg=msg, availUnits=units)
-
-
-            print(u_nums)
 
             cur.execute('''SELECT * FROM Users WHERE email = (?)''', [session['user_email']])
             con.commit()
@@ -420,6 +412,7 @@ def floorplan():
                 unit_nums = str(userRow[6]) + ", " + str(unit_enter)
 
             # Updates the values in the database
+            global units
             update(session['user_email'], unit_nums, unit_enter) #add payment method
 
             # Refresh list of available units
@@ -428,7 +421,7 @@ def floorplan():
             print("User selected unit number " + unit_enter + " with " + pay_enter + " payment method")
 
 
-            return redirect(url_for('user_home'))
+            return redirect(url_for('register1'))
 
         else:
             msg = "Please login to select a unit"
