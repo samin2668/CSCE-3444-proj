@@ -43,8 +43,8 @@
 
     </div>
 
-    <div class="reg">            
-            <form id="regForm">
+    <div class="reg">
+            <form id="regForm" method="post">
               <h1>Register:</h1>
               <!-- One "tab" for each step in the form: -->
               <div class="tab">Current Adress:
@@ -64,7 +64,7 @@
 
                 </select>
               </div>
-              
+
               <div style="overflow:auto;">
                 <div style="float:right;">
                   <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -77,10 +77,10 @@
                 <span class="step"></span>
 
               </div>
-            </form>          
+            </form>
     </div>
 
-    <script src="{{ url_for('static', filename='js/form.js') }}"></script> 
+    <script src="{{ url_for('static', filename='js/form.js') }}"></script>
 
     <head>
         <title>Home</title>

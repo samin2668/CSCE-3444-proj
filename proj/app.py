@@ -369,7 +369,7 @@ def register1():
 
     # User register form
     if request.method == 'POST':
-        pass
+        #pass
         # all form inputs will go here
 
         return redirect(url_for('user_home'))
