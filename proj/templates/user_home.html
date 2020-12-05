@@ -50,6 +50,8 @@
 
     </div>
 
+
+
     <!-- Header with image -->
     <head>
         <title>{{ user_name }} Home Page</title>
@@ -66,13 +68,35 @@
               userData[6] =  unit_num
               -->
 
-              {{ userData[4] }}'s home page
+              {{ userData[1] }}'s home page
               <br>
               Current unit(s): {{ userData[6] }}
             </div>
 
         </div>
     </head>
+
+    <div class="info">
+        <div class="account">
+            <h1>Update Account</h1>
+            <form action="{{ url_for('apply') }}" method="post">
+                <label for="fname">First name</label><br>
+                <input placeholder={{userData[1]}} id="name" name="name" />
+                <label for="lname">Last name</label><br>
+                <input placeholder={{userData[2]}} id="name" name="name" />
+                <label for="lname">Phone</label><br>
+                <input placeholder={{userData[3]}} id="name" name="name" />
+                <label for="email">Email</label><br>
+                <input placeholder={{userData[4]}} id="name" name="name" />
+                <button type="submit" class="btn" >Save Changes</button>
+            </form>
+        </div>
+        <!--
+        <a href="reg.html">
+            <button class="btn" >Register</button>
+        </a>
+      -->
+    </div>
 
     <footer>
         <p>1234 Road St <br>Denton,Texas 76203</p>
