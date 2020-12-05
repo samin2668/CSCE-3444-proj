@@ -377,6 +377,18 @@ def floorplan():
             unit_enter = request.form['selected']
             pay_enter = request.form['pay']
 
+            global units
+            u_nums = []
+            for unit in units:
+                 u_nums.append(unit[0])
+
+            if unit_enter not in u_nums:
+                msg = "Unit " + str(unit_enter) + " not available"
+                return render_template("floorplan.html", msg=msg, availUnits=units)
+
+
+            print(u_nums)
+
             cur.execute('''SELECT * FROM Users WHERE email = (?)''', [session['user_email']])
             con.commit()
             userRow = cur.fetchone()
@@ -397,7 +409,6 @@ def floorplan():
             update(session['user_email'], unit_nums, unit_enter) #add payment method
 
             # Refresh list of available units
-            global units
             units = getAvail()
 
             print("User selected unit number " + unit_enter + " with " + pay_enter + " payment method")
