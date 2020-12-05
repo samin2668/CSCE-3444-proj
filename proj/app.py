@@ -180,6 +180,13 @@ def apply():
         pw_enter = request.form['pass']
         pwCon_enter = request.form['conPass']
 
+
+        # Require all fields be entered
+        if not fn_enter or not ln_enter or not phone_enter or not em_enter or not pw_enter or not pwCon_enter:
+            msg="Please fill out all fields"
+            return render_template("apply.html", user_name=session['user_email'], msg=msg)
+
+
         # Hash the attempted password
         pw_enter_hash = hashlib.sha256(pw_enter.encode())
         pw_enter_hash = pw_enter_hash.hexdigest()
